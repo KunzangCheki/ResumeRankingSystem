@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRank Pro - Smart Resume Ranking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-alt"></i> ResumeRank Pro</h1>
+            <p>Upload resumes and get them ranked based on skills, experience, and qualifications</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="dropArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Upload Resume PDF</h3>
+                <p>Drag & drop your resume file here or click to browse</p>
+                <input type="file" id="fileInput" accept=".pdf" multiple>
+                <button id="uploadBtn">Select Files</button>
+            </div>
+            <div class="progress-container" id="progressContainer" style="display: none;">
+                <div class="progress-bar" id="progressBar"></div>
+                <span id="progressText">0%</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="rankBtn" disabled>
+                <i class="fas fa-trophy"></i> Rank Resumes
+            </button>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name, skills...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2><i class="fas fa-list-ol"></i> Ranking Results</h2>
+            <div class="filters">
+                <select id="sortSelect">
+                    <option value="score">Sort by Score</option>
+                    <option value="experience">Sort by Experience</option>
+                    <option value="education">Sort by Education</option>
+                </select>
+                <button id="exportBtn"><i class="fas fa-file-export"></i> Export Results</button>
+            </div>
+            
+            <div class="results-table">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Experience</th>
+                            <th>Qualifications</th>
+                            <th>Skills</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="no-results" id="noResults">
+                <i class="fas fa-file-search"></i>
+                <p>No resumes uploaded yet. Upload some resumes to see rankings.</p>
+            </div>
+        </div>
+
+        <div class="modal" id="previewModal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>Resume Preview</h3>
+                <div class="modal-body" id="modalBody">
+                    <!-- PDF preview will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 ResumeRank Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
